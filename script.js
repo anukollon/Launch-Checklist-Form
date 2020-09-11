@@ -14,7 +14,7 @@ window.addEventListener("load", function() {
          event.preventDefault(); 
          return;
       }
-      else if(!isNaN(pilotNameInput) || !isNaN(copilotNameInput) || isNaN(fuelLevelInput) || isNaN(cargoMassInput)){
+      else if(!checkInp(pilotNameInput) || !checkInp(copilotNameInput) || isNaN(fuelLevelInput) || isNaN(cargoMassInput)){
          document.getElementById("faultyItems").style.visibility = "hidden";
          document.getElementById("launchStatus").innerHTML = "Awaiting Information Before Launch";
          document.getElementById("launchStatus").style.color = "black";
@@ -67,5 +67,15 @@ window.addEventListener("load", function() {
      
    });
 });
+
+function checkInp(input)
+{
+    var regex=/^[a-zA-Z]+$/;
+    if (!input.match(regex))
+    {
+        return false;
+    }
+    return true;
+}
 
 
